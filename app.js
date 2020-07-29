@@ -12,7 +12,7 @@ var flash = require('connect-flash');
 var validator = require('express-validator');
 
 var routes = require('./routes/index');
-//var userRoutes = require('./routes/user');
+var userRoutes = require('./routes/user');
 
 var app = express();
 mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Debargha:debarghaghosh12@cluster0.t0die.mongodb.net/shopping?retryWrites=true&w=majority', {
@@ -42,12 +42,13 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
-  res.locals.login = req.isAuthenticated();
+  res.locals.login = req.isAuthenticated();//global property
   next();
 });
 
-// app.use('/user', userRoutes);
 app.use('/', routes);
+app.use('/user', userRoutes);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
