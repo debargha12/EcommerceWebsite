@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
+//var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -22,7 +22,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Debargha:debarghaghos
 mongoose.connection.on('connected', () => {
   console.log('Mongoose is connected!!!!');
 });
-
+require('./config/passport');
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs',expressHbs({defaultLayout: 'layout',extname:'.hbs',}));
@@ -33,7 +33,7 @@ app.set('view engine', 'hbs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(validator());
+//app.use(validator());
 app.use(cookieParser());
 app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
 app.use(flash());
@@ -46,7 +46,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-//app.use('/user', userRoutes);
+// app.use('/user', userRoutes);
 app.use('/', routes);
 
 // catch 404 and forward to error handler
