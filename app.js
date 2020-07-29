@@ -88,6 +88,8 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+const port = process.env.PORT || 3000;
+
 module.exports = app;
 
 
