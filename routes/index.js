@@ -40,6 +40,17 @@ router.get('/user/profile', function (req, res, next) {
     //var messages = req.flash('error');
     res.render('user/profile');
 });
+router.get('/user/signin', function (req, res, next) {
+    var messages = req.flash('error');
+    //console.log(messages);
+    res.render('user/signin', {csrfToken: req.csrfToken(),messages: messages, hasErrors: messages.length>0});
+});
+router.post('/user/signin', passport.authenticate('local.signin', {
 
+        failureRedirect: '/user/signin',
+        failureFlash: true,
+        successRedirect: '/user/profile'
+    })
+);
 
 module.exports = router;
