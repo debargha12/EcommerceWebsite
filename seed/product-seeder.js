@@ -2,7 +2,13 @@ var Product = require('../models/product');
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/shopping', {useNewUrlParser: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Debargha:debarghaghosh12@cluster0.t0die.mongodb.net/shopping?retryWrites=true&w=majority', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose is connected!!!!');
+});
 
 var products = [
     new Product({

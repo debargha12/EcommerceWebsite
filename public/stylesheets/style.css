@@ -1,7 +1,9 @@
 
 
 .thumbnail img {
-  max-height: 150px;
+  height: 300px;
+  width: 60%;
+  background-color: powderblue;
 
 }
 
@@ -13,4 +15,7 @@
   font-weight: bold;
   font-size: 16px;
   color: black;
+}
+.description{
+  height: 60px;
 }
