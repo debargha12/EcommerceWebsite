@@ -19,3 +19,8 @@
 .description{
   height: 60px;
 }
+.btn-success{
+  background-color: black;
+  border: none;
+  /* Green */
+}
