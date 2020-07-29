@@ -1,6 +1,6 @@
-{{# each products }}
+{{#each products}}
     <div class="row">
-        {{# each this }}
+        {{#each this }}
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail">
                     <img src="{{ imagePath }}" alt="..." class="img-responsive">
@@ -9,7 +9,7 @@
                         <p class="description">{{ description }}</p>
                         <div class="clearfix">
                             <div class="price pull-left">${{ price }}</div>
-                            <a href="#" class="btn btn-success pull-right" role="button">Add to Shopping Cart</a>
+                            <a href="/add-to-cart/{{_id}}" class="btn btn-success pull-right" role="button">Add to Shopping Cart</a>
                         </div>
                     </div>
                 </div>
