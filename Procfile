@@ -1,1 +1,1 @@
-"web: nodemoncommit  app.js"
+web:nodemon ./bin/www 
