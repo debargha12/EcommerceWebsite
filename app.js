@@ -16,7 +16,7 @@ var routes = require('./routes/index');
 var userRoutes = require('./routes/user');
 
 var app = express();
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://Debargha:debarghaghosh12@cluster0.t0die.mongodb.net/shopping?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI || '', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
